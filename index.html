@@ -4,21 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Phrase Counter</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #e0e0e0;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 10px 10px 30px #bebebe, -10px -10px 30px #ffffff;
+      text-align: center;
+      width: 300px;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .count {
+      font-size: 36px;
+      font-weight: bold;
+      color: #333;
+      margin: 20px 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: #e0e0e0;
+      box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      box-shadow: inset 2px 2px 5px #bebebe, inset -2px -2px 5px #ffffff;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>Phrase Counter</h1>
-
-    <textarea id="textInput" placeholder="Enter your text here..."></textarea>
-
-    <input type="text" id="phraseInput" placeholder="Enter phrase to count" />
-
-    <button onclick="countPhrase()">Count Phrase</button>
-
-    <div class="result" id="result">Occurrences: 0</div>
+    <h1>Did you get me?</h1>
+    <div class="count" id="count">0</div>
+    <div class="buttons">
+      <button onclick="changeCount(-1)">-</button>
+      <button onclick="changeCount(1)">+</button>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    let count = 0;
+
+    function changeCount(delta) {
+      count += delta;
+      document.getElementById('count').innerText = count;
+    }
+  </script>
 </body>
 </html>
